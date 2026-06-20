@@ -53,6 +53,11 @@ const appointmentSchema = new mongoose.Schema(
     },
 
     doctorName: String,
+
+    status: {
+  type: String,
+  default: "Confirmed"
+},
   },
   {
     timestamps: true,
