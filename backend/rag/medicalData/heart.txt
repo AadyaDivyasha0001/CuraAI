@@ -1,0 +1,14 @@
+Disease:
+Heart Related Problem
+
+Symptoms:
+chest pain
+breathing difficulty
+left arm pain
+fast heartbeat
+
+Recommended Specialist:
+Cardiologist
+
+Advice:
+Seek medical help quickly if symptoms are severe.

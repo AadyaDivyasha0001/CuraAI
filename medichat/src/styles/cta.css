@@ -1,0 +1,31 @@
+.cta-section{
+  margin:80px;
+  padding:70px;
+  border-radius:24px;
+
+  background:linear-gradient(
+  135deg,
+  #0097b2,
+  #0c6b87
+  );
+
+  color:white;
+  text-align:center;
+}
+
+.cta-section h2{
+  font-size:40px;
+}
+
+.cta-section p{
+  margin-top:15px;
+}
+
+.cta-section button{
+  margin-top:25px;
+  border:none;
+  background:white;
+  color:#0097b2;
+  padding:14px 30px;
+  border-radius:12px;
+}

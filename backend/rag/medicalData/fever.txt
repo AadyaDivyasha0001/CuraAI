@@ -1,0 +1,15 @@
+Disease:
+Infection / Fever
+
+Symptoms:
+fever
+body pain
+weakness
+cold
+cough
+
+Recommended Specialist:
+General Physician
+
+Advice:
+Monitor symptoms and visit physician if persistent.

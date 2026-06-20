@@ -1,0 +1,15 @@
+Disease:
+Migraine
+
+Symptoms:
+headache
+nausea
+vomiting
+light sensitivity
+dizziness
+
+Recommended Specialist:
+Neurologist
+
+Advice:
+Rest properly and consult a neurologist if symptoms continue.

@@ -1,0 +1,15 @@
+Disease:
+Digestive Problem
+
+Symptoms:
+stomach pain
+vomiting
+nausea
+diarrhea
+acidity
+
+Recommended Specialist:
+Gastroenterologist
+
+Advice:
+Drink fluids and consult doctor if problem continues.

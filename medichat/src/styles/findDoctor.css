@@ -1,0 +1,58 @@
+.doctor-page-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.doctor-page-header h1{
+  font-size:42px;
+}
+
+.doctor-page-header p{
+  color:#64748b;
+  margin:15px 0;
+}
+
+.doctor-page-header input{
+  width:450px;
+  max-width:90%;
+  padding:15px;
+  border:none;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+.doctor-search{
+  width: 100%;
+  max-width: 500px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.no-doctor-found{
+  width:100%;
+  text-align:center;
+  padding:60px;
+  color:#64748b;
+}
+
+.view-profile-btn{
+  width:100%;
+  background:#0891b2;
+  color:white;
+  border:none;
+  padding:14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.view-profile-btn:hover{
+  background:#0e7490;
+}
+.no-doctor-found h2{
+  margin-bottom:10px;
+}

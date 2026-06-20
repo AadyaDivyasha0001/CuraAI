@@ -1,0 +1,228 @@
+[
+  {
+    "disease": "Migraine",
+    "symptoms": [
+      "headache",
+      "nausea",
+      "vomiting",
+      "light sensitivity",
+      "dizziness"
+    ],
+    "department": "Neurologist",
+    "advice": "Rest in a quiet dark room and stay hydrated."
+  },
+
+  {
+    "disease": "Heart Disease",
+    "symptoms": [
+      "chest pain",
+      "chest discomfort",
+      "heart pain",
+      "palpitations",
+      "shortness of breath",
+      "fast heartbeat"
+    ],
+    "department": "Cardiologist",
+    "advice": "Seek immediate medical attention."
+  },
+
+  {
+    "disease": "Hypertension",
+    "symptoms": [
+      "high blood pressure",
+      "headache",
+      "dizziness",
+      "blurred vision"
+    ],
+    "department": "Cardiologist",
+    "advice": "Monitor blood pressure regularly."
+  },
+
+  {
+    "disease": "Skin Allergy",
+    "symptoms": [
+      "itching",
+      "itchy skin",
+      "red rash",
+      "red rashes",
+      "skin redness",
+      "skin irritation",
+      "allergy"
+    ],
+    "department": "Dermatologist",
+    "advice": "Avoid allergens and consult a dermatologist."
+  },
+
+  {
+    "disease": "Eczema",
+    "symptoms": [
+      "itching",
+      "itchy skin",
+      "red rash",
+      "red rashes",
+      "dry skin",
+      "red patches"
+    ],
+    "department": "Dermatologist",
+    "advice": "Use moisturizer and consult a dermatologist."
+  },
+
+  {
+    "disease": "Acne",
+    "symptoms": [
+      "pimples",
+      "acne",
+      "oily skin",
+      "skin inflammation"
+    ],
+    "department": "Dermatologist",
+    "advice": "Maintain skin hygiene."
+  },
+
+  {
+    "disease": "Common Cold",
+    "symptoms": [
+      "runny nose",
+      "sneezing",
+      "cough",
+      "sore throat"
+    ],
+    "department": "General Physician",
+    "advice": "Rest and drink plenty of fluids."
+  },
+
+  {
+    "disease": "Flu",
+    "symptoms": [
+      "fever",
+      "body ache",
+      "fatigue",
+      "chills",
+      "cough"
+    ],
+    "department": "General Physician",
+    "advice": "Rest and maintain hydration."
+  },
+
+  {
+    "disease": "Dengue",
+    "symptoms": [
+      "high fever",
+      "joint pain",
+      "body pain",
+      "rash",
+      "severe headache"
+    ],
+    "department": "General Physician",
+    "advice": "Seek medical evaluation immediately."
+  },
+
+  {
+    "disease": "Typhoid",
+    "symptoms": [
+      "fever",
+      "abdominal pain",
+      "weakness",
+      "headache"
+    ],
+    "department": "General Physician",
+    "advice": "Consult a physician."
+  },
+
+  {
+    "disease": "Gastritis",
+    "symptoms": [
+      "stomach pain",
+      "nausea",
+      "bloating",
+      "indigestion"
+    ],
+    "department": "Gastroenterologist",
+    "advice": "Avoid spicy foods."
+  },
+
+  {
+    "disease": "Acid Reflux",
+    "symptoms": [
+      "heartburn",
+      "acid reflux",
+      "chest burning",
+      "sour taste"
+    ],
+    "department": "Gastroenterologist",
+    "advice": "Avoid oily foods and large meals."
+  },
+
+  {
+    "disease": "Asthma",
+    "symptoms": [
+      "shortness of breath",
+      "wheezing",
+      "chest tightness",
+      "cough"
+    ],
+    "department": "Pulmonologist",
+    "advice": "Seek medical help if breathing worsens."
+  },
+
+  {
+    "disease": "Pneumonia",
+    "symptoms": [
+      "fever",
+      "cough",
+      "breathing difficulty",
+      "lung infection"
+    ],
+    "department": "Pulmonologist",
+    "advice": "Medical evaluation is recommended."
+  },
+
+  {
+    "disease": "Diabetes",
+    "symptoms": [
+      "frequent urination",
+      "excessive thirst",
+      "weight loss",
+      "fatigue"
+    ],
+    "department": "Endocrinologist",
+    "advice": "Consult an endocrinologist."
+  },
+
+  {
+    "disease": "Hypothyroidism",
+    "symptoms": [
+      "fatigue",
+      "weight gain",
+      "dry skin",
+      "cold intolerance"
+    ],
+    "department": "Endocrinologist",
+    "advice": "Thyroid testing is recommended."
+  },
+
+  {
+    "disease": "Depression",
+    "symptoms": [
+      "sadness",
+      "low mood",
+      "fatigue",
+      "loss of interest"
+    ],
+    "department": "Psychiatrist",
+    "advice": "Seek mental health support."
+  },
+
+  {
+    "disease": "Anxiety",
+    "symptoms": [
+      "anxiety",
+      "nervousness",
+      "restlessness",
+      "worry",
+      "rapid heartbeat"
+    ],
+    "department": "Psychiatrist",
+    "advice": "Consider professional counseling."
+  }
+]

@@ -1,0 +1,114 @@
+.welcome-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #eaf7fb,
+    #d7edf5
+  );
+}
+
+.welcome-card {
+  width: 550px;
+  text-align: center;
+
+  background: white;
+  padding: 50px;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.08);
+
+  animation: fadeIn 0.7s ease;
+}
+
+.welcome-icon {
+  width: 90px;
+  height: 90px;
+
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #1197b8;
+  color: white;
+
+  font-size: 40px;
+
+  animation: pulse 1.5s infinite;
+}
+
+.welcome-card h1 {
+  margin-top: 25px;
+  color: #0f172a;
+}
+
+.welcome-card h2 {
+  color: #1197b8;
+  margin: 10px 0;
+}
+
+.welcome-card p {
+  color: #64748b;
+  line-height: 1.7;
+  margin: 20px 0;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+
+  margin: 25px auto;
+
+  border: 5px solid #e5e7eb;
+  border-top: 5px solid #1197b8;
+
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
+}
+
+.welcome-card span {
+  color: #1197b8;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

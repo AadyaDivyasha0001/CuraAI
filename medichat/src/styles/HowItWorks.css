@@ -1,0 +1,43 @@
+.how-section{
+  padding:100px 80px;
+  text-align:center;
+}
+
+.how-section h2{
+  font-size:42px;
+  font-weight:700;
+}
+
+.how-section p{
+  color:#667085;
+  margin-top:10px;
+}
+
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  margin-top:50px;
+}
+
+.step-card{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:30px;
+  text-align:left;
+}
+
+.step-card span{
+  color:#94a3b8;
+  font-size:28px;
+  font-weight:700;
+}
+
+.step-card h3{
+  margin-top:15px;
+}
+
+.step-card p{
+  margin-top:10px;
+}

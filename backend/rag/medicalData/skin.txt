@@ -1,0 +1,14 @@
+Disease:
+Skin Allergy
+
+Symptoms:
+itching
+rash
+redness
+swelling
+
+Recommended Specialist:
+Dermatologist
+
+Advice:
+Avoid allergens and consult dermatologist.
