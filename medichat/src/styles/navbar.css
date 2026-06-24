@@ -12,7 +12,7 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 60px;
+  padding:0 clamp(15px,4vw,60px);
   background:white;
   border-bottom:1px solid #e5e7eb;
 }
@@ -36,7 +36,7 @@
 }
 
 .logo h2{
-  font-size:36px;
+  font-size:clamp(24px,4vw,36px);
   font-weight:800;
   color:#081b2d;
 }
@@ -154,4 +154,75 @@
   font-weight:600;
   color:#0f172a;
   white-space:nowrap;
+}
+@media(max-width:1024px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .mobile-menu{
+    display:block;
+  }
+
+}
+@media(max-width:1024px){
+
+  .navbar{
+    padding:0 15px;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:15px;
+  }
+
+  .nav-links a,
+  .nav-link-btn{
+    font-size:14px;
+  }
+
+  .logo h2{
+    font-size:24px;
+  }
+
+}
+@media(max-width:768px){
+
+  .navbar{
+    height:auto;
+    padding:12px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .logo h2{
+    font-size:22px;
+  }
+
+  .nav-links{
+    width:100%;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .nav-links a,
+  .nav-link-btn{
+    font-size:13px;
+  }
+
+  .auth-section{
+    width:100%;
+    justify-content:center;
+    gap:10px;
+  }
+
+  .login-btn,
+  .logout-btn,
+  .start-btn{
+    padding:10px 14px;
+    font-size:13px;
+  }
+
 }

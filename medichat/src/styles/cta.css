@@ -29,3 +29,32 @@
   padding:14px 30px;
   border-radius:12px;
 }
+@media(max-width:768px){
+
+  .cta-section{
+
+    margin:20px;
+    padding:40px 25px;
+
+    border-radius:20px;
+  }
+
+  .cta-section h2{
+
+    font-size:32px;
+    line-height:1.2;
+  }
+
+  .cta-section p{
+
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  .cta-section button{
+
+    width:100%;
+    max-width:220px;
+  }
+
+}

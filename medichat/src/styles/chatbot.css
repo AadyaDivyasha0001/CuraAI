@@ -132,3 +132,21 @@
 .doctor-card:hover {
   transform: translateY(-3px);
 }
+.chatbot-widget{
+
+  bottom:20px;
+  right:20px;
+}
+
+@media(max-width:768px){
+
+  .chatbot-widget{
+
+    width:60px;
+    height:60px;
+
+    bottom:90px;
+    right:15px;
+  }
+
+}

@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
     const { symptom } = req.body;
 
     const n8nResponse = await axios.post(
-      "http://localhost:5678/webhook-test/curaai-symptom",
+      "http://localhost:5678/webhook/curaai-symptom",
       {
         symptom,
       }

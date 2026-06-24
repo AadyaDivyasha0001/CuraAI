@@ -1,6 +1,7 @@
 .how-section{
-  padding:100px 80px;
-  text-align:center;
+  padding:
+  clamp(50px,8vw,100px)
+  clamp(20px,5vw,80px);
 }
 
 .how-section h2{
@@ -40,4 +41,36 @@
 
 .step-card p{
   margin-top:10px;
+}
+@media(max-width:768px){
+
+  .steps-grid{
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:12px;
+  }
+
+  .step-card{
+
+    padding:16px;
+  }
+
+  .step-card span{
+
+    font-size:20px;
+  }
+
+  .step-card h3{
+
+    font-size:15px;
+  }
+
+  .step-card p{
+
+    font-size:12px;
+    line-height:1.5;
+  }
+
 }

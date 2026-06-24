@@ -5,11 +5,9 @@ const DoctorSchema = new mongoose.Schema({
   specialization:String,
   experience:Number,
   rating:Number,
-  fee:Number,
-
+  fees:Number,
+  location: String,
   hospital:String,
-  location:String,
-
   clinicAddress:String,
   sittingHours: {
   start: String,

@@ -7,7 +7,7 @@ export default function TopRatedDoctors() {
 
   const [doctors, setDoctors] = useState([]);
   const navigate = useNavigate();
-
+ 
   useEffect(() => {
 
     const fetchDoctors = async () => {
@@ -27,13 +27,28 @@ export default function TopRatedDoctors() {
     <section className="top-doctors">
 
       <div className="heading-row">
-        <h2>Top-rated specialists</h2>
+       <div className="specialists-header">
+
+  <h2 className="section-title">
+    Top-rated specialists
+  </h2>
+
+  <button
+    className="view-more-btn"
+    onClick={() =>
+      navigate("/find-doctor")
+    }
+  >
+    View More →
+  </button>
+
+</div>
         
       </div>
 
       <div className="doctor-grid">
 
-        {doctors.map((doctor,index) => (
+        {doctors.slice(0,10).map((doctor,index) => (
 
           <div
             className="doctor-card"

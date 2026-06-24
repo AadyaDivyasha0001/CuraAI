@@ -15,7 +15,8 @@ export default function ChatbotModal({
 }) {
   const navigate = useNavigate();
   
-
+  const [loading, setLoading] =
+  useState(false);
   const [messages, setMessages] = useState([
     {
       sender: "bot",
@@ -64,6 +65,7 @@ const [specialization, setSpecialization] =
 
     if (!input.trim()) return;
     if (waitingForCity) {
+      setLoading(true);
 
   const doctorsRes =
     await axios.post(
@@ -117,7 +119,7 @@ ${doctor.speciality}
   setWaitingForCity(false);
 
   setInput("");
-
+   setLoading(false);
   return;
 }
 
@@ -200,6 +202,7 @@ if (
     ]);
 
     setInput("");
+    setLoading(true);
 
     try {
           const res = await axios.post(
@@ -228,7 +231,7 @@ if (!waitingForCity) {
         "\n\n📍 Which city are you from?"
     },
   ]);
-
+   setLoading(false);
   return;
 }
         const newMessages = [
@@ -268,6 +271,7 @@ await axios.post(
    } catch (error) {
       console.log(error);
 
+      setLoading(false);
       setMessages((prev) => [
         ...prev,
         {
@@ -324,6 +328,21 @@ await axios.post(
             {msg.text}
           </div>
         ))}
+        {loading && (
+
+  <div className="bot-msg loading-msg">
+
+    <div className="typing-indicator">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <p>Analyzing symptoms...</p>
+
+  </div>
+
+)}
       </div>
 
       <div className="chat-footer">

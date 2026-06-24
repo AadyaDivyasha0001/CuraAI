@@ -5,10 +5,21 @@ import { useNavigate } from "react-router-dom";
 import "../styles/findDoctor.css";
 
 export default function FindDoctor() {
-
+   const [speciality, setSpeciality] =
+  useState("");
+  const [location, setLocation] =
+  useState("");
+  const [experience, setExperience] =
+  useState("");
   const [doctors, setDoctors] = useState([]);
   const [search, setSearch] = useState("");
+   const [showSpeciality, setShowSpeciality] =
+  useState(false);
+  const [showLocation, setShowLocation] =
+  useState(false);
 
+const [showExperience, setShowExperience] =
+  useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,24 +31,63 @@ export default function FindDoctor() {
 
   }, []);
 
-  const filteredDoctors = doctors.filter((doctor) =>
-    doctor.name
-      ?.toLowerCase()
-      .includes(search.toLowerCase()) ||
+   const filteredDoctors =
+  doctors.filter((doctor) => {
 
-    doctor.specialization
-      ?.toLowerCase()
-      .includes(search.toLowerCase()) ||
+    const matchesSearch =
 
-    doctor.location
-      ?.toLowerCase()
-      .includes(search.toLowerCase()) ||
+      doctor.name
+        ?.toLowerCase()
+        .includes(
+          search.toLowerCase()
+        ) ||
 
-    doctor.hospital
-      ?.toLowerCase()
-      .includes(search.toLowerCase())
-  );
+      doctor.speciality
+        ?.toLowerCase()
+        .includes(
+          search.toLowerCase()
+        ) ||
 
+      doctor.location
+        ?.toLowerCase()
+        .includes(
+          search.toLowerCase()
+        ) ||
+
+      doctor.hospital
+        ?.toLowerCase()
+        .includes(
+          search.toLowerCase()
+        );
+
+    const matchesSpeciality =
+      !speciality ||
+      doctor.speciality ===
+      speciality;
+
+    const matchesLocation =
+      !location ||
+      doctor.location ===
+      location;
+
+    const matchesExperience =
+      !experience ||
+      doctor.experience >=
+      Number(experience);
+
+    return (
+      matchesSearch &&
+      matchesSpeciality &&
+      matchesLocation &&
+      matchesExperience
+    );
+
+  });
+  console.log("Selected:", speciality);
+
+console.log(
+  doctors.map(d => d.speciality)
+);
   return (
 
     <div className="find-doctor-page">
@@ -49,32 +99,239 @@ export default function FindDoctor() {
         </h1>
 
         <p>
-          Browse experienced doctors and
-          book appointments instantly.
+          Browse experienced doctors and book appointments instantly.
         </p>
 
-        <input
-          type="text"
-          placeholder="Search by doctor name, specialty, hospital..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="doctor-search"
-        />
+       <div className="search-filter-container">
+
+  <input
+    type="text"
+    placeholder="🔍 Search by doctor name, specialty, hospital..."
+    value={search}
+    onChange={(e) =>
+      setSearch(e.target.value)
+    }
+    className="doctor-search"
+  />
+
+  <div className="custom-dropdown">
+
+  <button
+    className="dropdown-btn"
+    onClick={() =>
+      setShowSpeciality(
+        !showSpeciality
+      )
+    }
+  >
+    {speciality ||
+      "All Specialities"}
+
+       <span className="dropdown-arrow">
+    ▼
+  </span>
+  </button>
+
+  {showSpeciality && (
+
+    <div className="dropdown-menu">
+
+      <div
+        className="dropdown-item"
+        onClick={() => {
+          setSpeciality("");
+          setShowSpeciality(false);
+        }}
+      >
+        All Specialities
+        
+      </div>
+
+      {[...new Set(
+        doctors.map(
+          d => d.speciality
+        )
+      )].map((spec) => (
+
+        <div
+          key={spec}
+          className="dropdown-item"
+          onClick={() => {
+
+            setSpeciality(spec);
+
+            setShowSpeciality(
+              false
+            );
+
+          }}
+        >
+          {spec}
+        </div>
+
+      ))}
+
+    </div>
+
+  )}
+
+</div>
+<div className="custom-dropdown">
+
+  <button
+    className="dropdown-btn"
+    onClick={() =>
+      setShowLocation(
+        !showLocation
+      )
+    }
+  >
+    {location ||
+      "All Locations"} 
+       <span className="dropdown-arrow">
+    ▼
+  </span>
+  </button>
+
+  {showLocation && (
+
+    <div className="dropdown-menu">
+
+      <div
+        className="dropdown-item"
+        onClick={() => {
+          setLocation("");
+          setShowLocation(false);
+        }}
+      >
+        All Locations
+      </div>
+
+      {[...new Set(
+        doctors.map(
+          d => d.location
+        )
+      )].map((loc) => (
+
+        <div
+          key={loc}
+          className="dropdown-item"
+          onClick={() => {
+
+            setLocation(loc);
+
+            setShowLocation(
+              false
+            );
+
+          }}
+        >
+          {loc}
+        </div>
+
+      ))}
+
+    </div>
+
+  )}
+
+</div>
+ <div className="custom-dropdown">
+
+  <button
+    className="dropdown-btn"
+    onClick={() =>
+      setShowExperience(
+        !showExperience
+      )
+    }
+  >
+    {experience
+      ? `${experience}+ Years`
+      : "All Experience"} 
+       <span className="dropdown-arrow">
+    ▼
+  </span>
+  </button>
+
+  {showExperience && (
+
+    <div className="dropdown-menu">
+
+      <div
+        className="dropdown-item"
+        onClick={() => {
+          setExperience("");
+          setShowExperience(false);
+        }}
+      >
+        All Experience
+      </div>
+
+      {[5,6,10,15,20].map((exp) => (
+
+        <div
+          key={exp}
+          className="dropdown-item"
+          onClick={() => {
+
+            setExperience(
+              String(exp)
+            );
+
+            setShowExperience(
+              false
+            );
+
+          }}
+        >
+          {exp}+ Years
+        </div>
+
+      ))}
+
+    </div>
+
+  )}
+
+</div>
+
+ 
+  
+
+</div>
 
       </div>
 
-      <div className="doctor-grid">
+      {filteredDoctors.length > 0 && (
+        <div className="doctor-table-header">
+
+  <span>Doctor</span>
+
+  <span>Rating</span>
+
+  <span>Experience</span>
+
+  <span>Location</span>
+
+  <span>Consultation Fee</span>
+
+ 
+
+</div>
+      )}
+      <div className="doctor-list">
 
         {filteredDoctors.length > 0 ? (
 
           filteredDoctors.map((doctor, index) => (
 
             <div
-              className="doctor-card"
+              className="doctor-row"
               key={doctor._id}
             >
 
-              <div className="doctor-top">
+              <div className="doctor-main">
 
                 <div
                   className="doctor-avatar"
@@ -102,29 +359,54 @@ export default function FindDoctor() {
                     {doctor.name}
                   </h3>
 
-                  <p>
+                  <p className="doctor-speciality">
                     {doctor.specialization}
+                  </p>
+
+                  <p className="doctor-hospital">
+                    🏥 {doctor.hospital}
                   </p>
 
                 </div>
 
               </div>
 
-              <div className="doctor-info">
+              <div className="doctor-rating">
 
-                <p>
+                <span className="rating-score">
                   ⭐ {doctor.rating}
-                </p>
+                </span>
 
-                <p>
-                  {doctor.experience} Years Experience
-                </p>
+                <small>
+                  (rating)             
+                  </small>
 
-                {doctor.location && (
-                  <p>
-                    📍 {doctor.location}
-                  </p>
-                )}
+              </div>
+
+              <div className="doctor-experience">
+
+                <span>
+                   {doctor.experience} Years
+                </span>
+
+                <small>
+                  Experience
+                </small>
+
+              </div>
+
+              <div className="doctor-location">
+
+                📍 {doctor.location}
+                 
+
+
+              </div>
+
+
+              <div className="doctor-fees">
+
+                ₹{doctor.fees}
 
               </div>
 
@@ -158,6 +440,18 @@ export default function FindDoctor() {
         )}
 
       </div>
+
+      {filteredDoctors.length > 0 && (
+
+        <div className="pagination-footer">
+
+          <p>
+            Showing {filteredDoctors.length} doctors
+          </p>
+
+        </div>
+
+      )}
 
     </div>
 

@@ -161,3 +161,16 @@
   background: #16b5d8;
   color: white;
 }
+.profile-container{
+
+  display:flex;
+  gap:40px;
+}
+@media(max-width:1024px){
+
+  .profile-container{
+
+    flex-direction:column;
+  }
+
+}

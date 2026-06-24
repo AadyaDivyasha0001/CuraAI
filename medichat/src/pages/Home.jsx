@@ -38,33 +38,39 @@ export default function Home() {
 
   return (
     <>
-      <Navbar
-        openChat={openChat}
-      />
+  <Navbar openChat={openChat} />
 
-      <HeroSection
-        openChat={openChat}
-        navigate={navigate}
-      />
+  <section className="section">
+    <HeroSection
+      openChat={openChat}
+      navigate={navigate}
+    />
+  </section>
 
-      <HowItWorks />
+  <section className="section">
+    <HowItWorks />
+  </section>
 
-      <TopRatedDoctors />
+  <section className="section">
+    <TopRatedDoctors />
+  </section>
 
-      <CTASection
-        openChat={openChat}
-      />
+  <section className="section">
+    <CTASection
+      openChat={openChat}
+    />
+  </section>
 
-      <Footer />
+  <Footer />
 
-      <ChatbotWidget
-        openChat={openChat}
-      />
+  <ChatbotWidget
+    openChat={openChat}
+  />
 
-      <ChatbotModal
-        isOpen={chatOpen}
-        onClose={() => setChatOpen(false)}
-      />
-    </>
+  <ChatbotModal
+    isOpen={chatOpen}
+    onClose={() => setChatOpen(false)}
+  />
+</>
   );
 }
