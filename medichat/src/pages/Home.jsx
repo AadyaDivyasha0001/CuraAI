@@ -9,7 +9,7 @@ import CTASection from "../components/CTASection";
 import Footer from "../components/Footer";
 import ChatbotWidget from "../components/ChatbotWidget";
 import ChatbotModal from "../components/ChatbotModal";
-
+import ChatbotBubble from "../components/ChatbotBubble";
 export default function Home() {
 
   const [chatOpen, setChatOpen] = useState(false);
@@ -62,7 +62,10 @@ export default function Home() {
   </section>
 
   <Footer />
-
+   
+   <ChatbotBubble
+    openChat={openChat}
+/>
   <ChatbotWidget
     openChat={openChat}
   />

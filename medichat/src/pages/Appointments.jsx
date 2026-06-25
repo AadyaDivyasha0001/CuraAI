@@ -258,19 +258,41 @@ const pastAppointments =
   return (
     <div className="appointments-page">
 
-      <div className="appointments-header">
+        <div className="appointments-header">
 
-        <h1>
-          My Appointments
-        </h1>
+  <h1>My Appointments</h1>
 
-        <p>
-          Total Appointments:
-          {" "}
-          {appointments.length}
-        </p>
+  <p>Manage all your bookings in one place</p>
 
+  <div className="appointment-stats">
+
+    <div className="stat-card">
+      <span>📅</span>
+      <div>
+        <h3>{appointments.length}</h3>
+        <p>Total</p>
       </div>
+    </div>
+
+    <div className="stat-card">
+      <span>⏳</span>
+      <div>
+        <h3>{upcomingAppointments.length}</h3>
+        <p>Upcoming</p>
+      </div>
+    </div>
+
+    <div className="stat-card">
+      <span>✅</span>
+      <div>
+        <h3>{pastAppointments.length}</h3>
+        <p>Completed</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
       {appointments.length === 0 ? (
 
@@ -291,33 +313,51 @@ const pastAppointments =
         <h2 className="history-title">
   Appointment History
 </h2>
-
-{pastAppointments.map((a) => (
+       {pastAppointments.map((a) => (
 
   <div
     className="appointment-card history-card"
     key={a._id}
   >
 
-    <h3>
-      👨‍⚕️ {a.doctorName}
-    </h3>
+    <div className="history-top">
 
-    <p>
-      {a.appointmentDate}
-    </p>
+      <div className="history-avatar">
 
-    <p>
-      {a.appointmentTime}
-    </p>
+        {a.doctorName
+          .replace("Dr.","")
+          .trim()
+          .split(" ")
+          .map(word => word[0])
+          .join("")
+          .substring(0,2)}
 
-    <span className="history-badge">
-      Completed
-    </span>
+      </div>
+
+      <div className="history-info">
+
+        <h3>{a.doctorName}</h3>
+
+        <p>
+          📅 {a.appointmentDate}
+        </p>
+
+        <p>
+          🕘 {a.appointmentTime}
+        </p>
+
+        <span className="history-badge">
+          ✅ Completed
+        </span>
+
+      </div>
+
+    </div>
 
   </div>
 
 ))}
+
           <h2>Upcoming Appointments</h2>
 
         {upcomingAppointments.map((a) => (
@@ -338,44 +378,31 @@ const pastAppointments =
               </span>
 
             </div>
+              <div className="appointment-meta">
 
-            <div className="appointment-details">
+  <div>
+    👤
+    <span>{a.patientName}</span>
+  </div>
 
-              <p>
-                <strong>
-                  Patient:
-                </strong>
-                {" "}
-                {a.patientName}
-              </p>
+  <div>
+    📅
+    <span>{a.appointmentDate}</span>
+  </div>
 
-              <p>
-                <strong>
-                  Date:
-                </strong>
-                {" "}
-                {a.appointmentDate}
-              </p>
+  <div>
+    🕘
+    <span>{a.appointmentTime}</span>
+  </div>
 
-              <p>
-                <strong>
-                  Time:
-                </strong>
-                {" "}
-                {a.appointmentTime}
-              </p>
+  <div>
+    🩺
+    <span>{a.symptoms}</span>
+  </div>
 
-              <p>
-                <strong>
-                  Symptoms:
-                </strong>
-                {" "}
-                {a.symptoms}
-              </p>
+</div>
 
-            </div>
-
-           <div className="appointment-actions">
+        <div className="action-buttons">   
 
  
 
@@ -385,7 +412,7 @@ const pastAppointments =
     downloadReceipt(a)
   }
 >
-  Download Receipt
+  ⬇ Download
 </button>
 
 <button
@@ -419,7 +446,7 @@ const pastAppointments =
 
   }}
 >
-  Reschedule
+ 📅 Reschedule
 </button>
 
 <button
@@ -428,7 +455,7 @@ const pastAppointments =
     cancelAppointment(a._id)
   }
 >
-  Cancel Appointment
+   ❌ Cancel Appointment
 </button>
 
   </div>      

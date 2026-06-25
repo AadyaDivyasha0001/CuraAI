@@ -67,50 +67,59 @@ export default function DoctorProfile() {
     </div>
 
   </div>
-  <div className="doctor-details">
+  <div className="doctor-details-grid">
 
-  <p>⭐ Rating: {doctor.rating}</p>
+  <div className="detail-card">
+    <span>🏥</span>
+    <h4>Hospital</h4>
+    <p>{doctor.hospital}</p>
+  </div>
 
-  <p>
-    🎓 Experience: {doctor.experience} Years
-  </p>
+  <div className="detail-card">
+    <span>📍</span>
+    <h4>Location</h4>
+    <p>{doctor.location}</p>
+  </div>
 
-  <p>
-    🏥 Hospital: {doctor.hospital}
-  </p>
+  <div className="detail-card">
+    <span>🏢</span>
+    <h4>Clinic</h4>
+    <p>{doctor.clinicAddress}</p>
+  </div>
 
-  <p>
-    📍 Location: {doctor.location}
-  </p>
+  <div className="detail-card">
+    <span>⏰</span>
+    <h4>Sitting Hours</h4>
+    <p>
+      {doctor.sittingHours?.start}
+      {" - "}
+      {doctor.sittingHours?.end}
+    </p>
+  </div>
 
-  <p>
-    🏢 Clinic: {doctor.clinicAddress}
-  </p>
+  <div className="detail-card">
+    <span>🔥</span>
+    <h4>Rush Hours</h4>
+    <p>{doctor.rushHours?.join(", ")}</p>
+  </div>
 
-  <p>
-    ⏰ Sitting Hours:
-    {doctor.sittingHours?.start} - {doctor.sittingHours?.end}
-  </p>
+  <div className="detail-card">
+    <span>🏥</span>
+    <h4>Clinic Name</h4>
+    <p>{doctor.clinicName}</p>
+  </div>
 
-  <p>
-    🔥 Rush Hours:
-    {doctor.rushHours?.join(", ")}
-  </p>
+  <div className="detail-card">
+    <span>📞</span>
+    <h4>Clinic Phone</h4>
+    <p>{doctor.clinicPhone}</p>
+  </div>
 
-  <p>
-    🏥 Clinic Name:
-    {doctor.clinicName}
-  </p>
-
-  <p>
-    📞 Clinic Phone:
-    {doctor.clinicPhone}
-  </p>
-
-  <p>
-    💰 Consultation Fee:
-    ₹{doctor.fees}
-  </p>
+  <div className="detail-card">
+    <span>💰</span>
+    <h4>Consultation Fee</h4>
+    <p>₹{doctor.fees}</p>
+  </div>
 
 </div>
 

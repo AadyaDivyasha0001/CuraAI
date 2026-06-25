@@ -1,4 +1,5 @@
 import "../styles/hero.css";
+import heroAI from "../assets/hero-ai.png";
 
 export default function HeroSection({
   openChat,
@@ -47,6 +48,16 @@ export default function HeroSection({
 
       </div>
 
+      <div className="hero-right">
+
+        <img
+          src={heroAI}
+          alt="AI Healthcare Assistant"
+          className="hero-image"
+        />
+
+      
+</div>
     </section>
   );
 }
