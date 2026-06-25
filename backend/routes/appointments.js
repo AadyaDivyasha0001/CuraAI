@@ -12,76 +12,124 @@ const sendRescheduleEmail =
 require("../utils/sendRescheduleEmail");
 // Create Appointment
 router.post("/", auth, async (req, res) => {
+
   try {
+
+    // Check if doctor is already booked
+
     const existingAppointment =
-await Appointment.findOne({
+      await Appointment.findOne({
 
-  doctorId:
-    req.body.doctorId,
+        doctorId: req.body.doctorId,
 
-  appointmentDate:
-    req.body.appointmentDate,
+        appointmentDate:
+          req.body.appointmentDate,
 
-  appointmentTime:
-    req.body.appointmentTime,
+        appointmentTime:
+          req.body.appointmentTime,
 
-});
+      });
 
-if (existingAppointment) {
+    if (existingAppointment) {
 
-  return res.status(400).json({
-    message:
-      "Slot already booked",
-  });
+      return res.status(400).json({
+        message: "Slot already booked",
+      });
 
-}
+    }
+
+    // Check if patient already has an appointment
+    // at the same date and time
+
+    const patientAppointment =
+      await Appointment.findOne({
+
+        userId: req.user.id,
+
+        appointmentDate:
+          req.body.appointmentDate,
+
+        appointmentTime:
+          req.body.appointmentTime,
+
+      });
+
+    if (patientAppointment) {
+
+      return res.status(400).json({
+
+        message:
+          "You already have another appointment at this time."
+
+      });
+
+    }
+
+    // Create appointment
+
     const appointment =
-     await Appointment.create({
-  ...req.body,
-  userId: req.user.id
-});
-const Doctor =
-require("../models/Doctor");
+      await Appointment.create({
 
-const doctor =
-await Doctor.findById(
-  req.body.doctorId
-);
+        ...req.body,
 
-if (doctor) {
+        userId: req.user.id,
 
-  doctor.availableSlots =
-    doctor.availableSlots.filter(
-      slot =>
-        slot !==
-        req.body.appointmentTime
+      });
+
+    const Doctor =
+      require("../models/Doctor");
+
+    const doctor =
+      await Doctor.findById(
+        req.body.doctorId
+      );
+
+    if (doctor) {
+
+      doctor.availableSlots =
+        doctor.availableSlots.filter(
+
+          slot =>
+            slot !==
+            req.body.appointmentTime
+
+        );
+
+      await doctor.save();
+
+    }
+
+    try {
+
+      await sendAppointmentEmail(
+        appointment
+      );
+
+    } catch (mailError) {
+
+      console.log(
+        "Email Error:",
+        mailError.message
+      );
+
+    }
+
+    res.status(201).json(
+      appointment
     );
 
-  await doctor.save();
-
-}
-try {
-
-  await sendAppointmentEmail(
-    appointment
-  );
-
-} catch (mailError) {
-
-  console.log(
-    "Email Error:",
-    mailError.message
-  );
-
-}
-
-    res.status(201).json(appointment);
   } catch (err) {
+
     res.status(500).json({
+
       error: err.message,
+
     });
+
   }
+
 });
+
 
 // Get All Appointments
 router.get("/", auth, async (req, res) => {
@@ -209,11 +257,25 @@ router.put("/:id", auth, async (req, res) => {
         appointmentTime:
           req.body.appointmentTime,
 
-        _id: {
-          $ne: req.params.id,
-        },
+        
+
 
       });
+       const patientAppointment =
+await Appointment.findOne({
+
+  userId: req.user.id,
+
+  appointmentDate:
+    req.body.appointmentDate,
+
+  appointmentTime:
+    req.body.appointmentTime,
+      _id:{
+    $ne:req.params.id
+      }
+});
+
 
     if (existingAppointment) {
 
@@ -225,6 +287,17 @@ router.put("/:id", auth, async (req, res) => {
       });
 
     }
+    if(patientAppointment){
+
+  return res.status(400).json({
+
+    message:
+      "Appointment conflict detected. You already have a booking at this time."
+
+  });
+
+}
+   
 
     const appointment =
       await Appointment.findByIdAndUpdate(

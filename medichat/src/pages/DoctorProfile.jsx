@@ -28,102 +28,107 @@ export default function DoctorProfile() {
 
   return (
     <div className="doctor-profile-page">
+     <div className="profile-card">
 
-      <div className="profile-card">
+  <div className="profile-header">
 
-        <div className="profile-avatar">
-          {doctor.name
-            .replace("Dr.", "")
-            .trim()
-            .split(" ")
-            .map((w) => w[0])
-            .join("")
-            .substring(0, 2)}
-        </div>
+    <div className="profile-avatar">
+      {doctor.name
+        .replace("Dr.", "")
+        .trim()
+        .split(" ")
+        .map((w) => w[0])
+        .join("")
+        .substring(0, 2)}
+    </div>
 
-        <div className="profile-info">
+    <div className="profile-info">
 
-          <h1>{doctor.name}</h1>
+      <h1>{doctor.name}</h1>
 
-          <h3>{doctor.specialization}</h3>
+      <h3>{doctor.specialization}</h3>
 
-          <div className="doctor-details">
+      <div className="profile-badges">
+
+        <span>
+          ⭐ {doctor.rating}
+        </span>
+
+        <span>
+          🩺 {doctor.experience} Years
+        </span>
+
+        <span>
+          📍 {doctor.location}
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div className="doctor-details">
+
+  <p>⭐ Rating: {doctor.rating}</p>
 
   <p>
-    ⭐ Rating: {doctor.rating}
+    🎓 Experience: {doctor.experience} Years
   </p>
 
   <p>
-    🎓 Experience:
-    {doctor.experience} Years
+    🏥 Hospital: {doctor.hospital}
   </p>
 
   <p>
-    🏥 Hospital:
-    {doctor.hospital}
+    📍 Location: {doctor.location}
   </p>
 
   <p>
-    📍 Location:
-    {doctor.location}
+    🏢 Clinic: {doctor.clinicAddress}
   </p>
 
   <p>
-    🏢 Clinic:
-    {doctor.clinicAddress}
+    ⏰ Sitting Hours:
+    {doctor.sittingHours?.start} - {doctor.sittingHours?.end}
   </p>
 
   <p>
-  ⏰ Sitting Hours:
-  {doctor.sittingHours?.start}
-  {" - "}
-  {doctor.sittingHours?.end}
-</p>
+    🔥 Rush Hours:
+    {doctor.rushHours?.join(", ")}
+  </p>
 
-<p>
-  🔥 Rush Hours:
-  {doctor.rushHours?.join(", ")}
-</p>
-<p>
-  🏥 Clinic Name:
-  {doctor.clinicName}
-</p>
+  <p>
+    🏥 Clinic Name:
+    {doctor.clinicName}
+  </p>
 
-<p>
-  📞 Clinic Phone:
-  {doctor.clinicPhone}
-</p>
-
-  
+  <p>
+    📞 Clinic Phone:
+    {doctor.clinicPhone}
+  </p>
 
   <p>
     💰 Consultation Fee:
     ₹{doctor.fees}
   </p>
 
+</div>
+
+<div className="doctor-about">
+  <p>{doctor.about}</p>
+</div>
+</div>
+<div className="book-btn-wrapper">
+<button
+  className="book-btn"
+  onClick={() => setShowForm(!showForm)}
+>
+  {showForm ? "Close Form" : "Book Appointment"}
+</button>
 
 </div>
-<div className="doctor-about">
 
   
-
-  <p>
-    {doctor.about}
-  </p>
-
-</div>
-
-          <button
-            className="book-btn"
-            onClick={() => setShowForm(!showForm)}
-          >
-            {showForm
-              ? "Close Form"
-              : "Book Appointment"}
-          </button>
-
-        </div>
-      </div>
 
       {showForm && (
         <AppointmentForm
@@ -271,9 +276,10 @@ const availableSlotsToday =
 
     console.log(error);
 
-    toast.error(
-      "Failed to book appointment"
-    );
+     toast.error(
+    error.response?.data?.message ||
+    "Failed to book appointment"
+  );
 
   }
 };
