@@ -1,0 +1,306 @@
+.reports-page{
+    max-width:1300px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.reports-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.reports-title{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.reports-icon{
+    width:75px;
+    height:75px;
+    border-radius:18px;
+    background:#e8f9ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+    color:#11a8d6;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.reports-title h1{
+    margin:0;
+    font-size:42px;
+    font-weight:700;
+    color:#0b2447;
+}
+
+.reports-title p{
+    margin-top:8px;
+    color:#667085;
+    font-size:18px;
+}
+
+.top-upload-btn{
+    background:#17b4d8;
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    padding:16px 28px;
+    font-size:17px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.top-upload-btn:hover{
+    background:#0e9bc2;
+    transform:translateY(-2px);
+}
+
+.upload-card{
+    background:#fff;
+    border-radius:24px;
+    padding:35px;
+    margin-bottom:35px;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.upload-card h2{
+    margin-bottom:30px;
+    color:#0b2447;
+}
+
+.upload-form{
+    display:grid;
+    grid-template-columns:1fr 1fr 1.5fr auto;
+    gap:18px;
+    align-items:center;
+}
+
+.upload-form select,
+.upload-form input[type=file]{
+    height:60px;
+    border:1px solid #dbe5f0;
+    border-radius:14px;
+    padding:0 18px;
+    font-size:16px;
+    background:#fff;
+}
+
+.upload-form button{
+    height:60px;
+    border:none;
+    border-radius:14px;
+    background:#18b8dd;
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    padding:0 28px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    transition:.3s;
+}
+
+.upload-form button:hover{
+    background:#099fc3;
+}
+
+.reports-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.report-card{
+    background:#fff;
+    border-radius:22px;
+    padding:26px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.report-card:hover{
+    transform:translateY(-4px);
+}
+
+.report-info h3{
+    margin:0;
+    font-size:28px;
+    color:#0b2447;
+}
+
+.report-info p{
+    margin-top:12px;
+    color:#667085;
+    font-size:17px;
+}
+
+.report-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.report-buttons a{
+    text-decoration:none;
+    background:#14b6da;
+    color:white;
+    padding:12px 24px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.report-buttons a:hover{
+    background:#0b9dbf;
+}
+
+.report-buttons button{
+    background:#ff5f5f;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:12px 22px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.report-buttons button:hover{
+    background:#ef4444;
+}
+
+.empty-state{
+    background:#fff;
+    border-radius:24px;
+    padding:90px;
+    text-align:center;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.empty-state svg{
+    font-size:80px;
+    color:#19b8db;
+    margin-bottom:20px;
+}
+
+.empty-state h2{
+    margin-bottom:10px;
+    color:#0b2447;
+}
+
+.empty-state p{
+    color:#667085;
+    font-size:18px;
+}
+
+@media(max-width:1100px){
+
+.upload-form{
+grid-template-columns:1fr;
+}
+
+.report-card{
+flex-direction:column;
+align-items:flex-start;
+gap:25px;
+}
+
+.report-buttons{
+width:100%;
+}
+
+.report-buttons a,
+.report-buttons button{
+flex:1;
+text-align:center;
+}
+
+}
+.file-upload{
+height:60px;
+border:2px dashed #cfd8e3;
+border-radius:14px;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+font-size:16px;
+color:#667085;
+background:#fafcff;
+transition:.3s;
+}
+
+.file-upload:hover{
+border-color:#18b8dd;
+background:#eefcff;
+}
+.report-buttons{
+    display:flex;
+    gap:12px;
+}
+
+.view-btn,
+.download-btn,
+.delete-btn{
+
+    border:none;
+    padding:12px 22px;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    text-decoration:none;
+
+}
+
+.view-btn{
+
+    background:#edf9ff;
+    color:#0ea5e9;
+
+}
+
+.view-btn:hover{
+
+    background:#d8f3ff;
+
+}
+
+.download-btn{
+
+    background:#13b4d7;
+    color:white;
+
+}
+
+.download-btn:hover{
+
+    background:#0d9fc2;
+
+}
+
+.delete-btn{
+
+    background:#ffe7e7;
+    color:#ef4444;
+
+}
+
+.delete-btn:hover{
+
+    background:#ffd4d4;
+
+}

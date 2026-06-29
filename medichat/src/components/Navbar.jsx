@@ -1,17 +1,53 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
 import "../styles/navbar.css";
 
-
-
 export default function Navbar({ openChat }) {
-    const user =
-  JSON.parse(
+
+  const user = JSON.parse(
     localStorage.getItem("user")
   );
+
+  const navigate = useNavigate();
+
+  const [showMenu, setShowMenu] =
+    useState(false);
+
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+
+    function handleClickOutside(e) {
+
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target)
+      ) {
+        setShowMenu(false);
+      }
+
+    }
+
+    document.addEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+
+    return () => {
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+    };
+
+  }, []);
+
   return (
+
     <nav className="navbar">
 
       <div className="logo">
+
         <div className="logo-circle">
           ⚕
         </div>
@@ -19,6 +55,7 @@ export default function Navbar({ openChat }) {
         <h2>
           Cura<span>AI</span>
         </h2>
+
       </div>
 
       <div className="nav-links">
@@ -47,26 +84,98 @@ export default function Navbar({ openChat }) {
         {user ? (
 
           <>
-            <div className="user-profile">
-              <div className="user-avatar">
-                {user?.name?.charAt(0).toUpperCase()}
+
+            <div
+              className="user-profile"
+              ref={menuRef}
+            >
+
+              <div
+                className="profile-trigger"
+                onClick={() =>
+                  setShowMenu(!showMenu)
+                }
+              >
+
+                <div className="user-avatar">
+                  {user?.name
+                    ?.charAt(0)
+                    .toUpperCase()}
+                </div>
+
+                <span>
+                  {user.name}
+                </span>
+
+                <span className="dropdown-arrow">
+                  ▼
+                </span>
+
               </div>
 
-              <span>
-                {user.name}
-              </span>
+              {showMenu && (
+
+                <div className="profile-dropdown">
+
+                  <div
+                    className="dropdown-item"
+                    onClick={() => {
+
+                      navigate("/profile");
+
+                      setShowMenu(false);
+
+                    }}
+                  >
+                    👤 My Profile
+                  </div>
+
+                  <div
+                    className="dropdown-item"
+                    onClick={() => {
+
+                      navigate("/appointments");
+
+                      setShowMenu(false);
+
+                    }}
+                  >
+                    📅 My Appointments
+                  </div>
+
+                  <div
+                    className="dropdown-item"
+                    onClick={() => {
+
+                      navigate("/reports");
+
+                      setShowMenu(false);
+
+                    }}
+                  >
+                    📄 Medical Reports
+                  </div>
+
+                </div>
+
+              )}
+
             </div>
 
             <button
               className="logout-btn"
               onClick={() => {
+
                 localStorage.removeItem("token");
                 localStorage.removeItem("user");
+
                 window.location.href = "/";
+
               }}
             >
               Logout
             </button>
+
           </>
 
         ) : (
@@ -81,32 +190,40 @@ export default function Navbar({ openChat }) {
         )}
 
         <button
-  className="start-btn"
-  onClick={() => {
+          className="start-btn"
+          onClick={() => {
 
-    if (!user) {
-      window.location.href = "/register";
-      return;
-    }
+            if (!user) {
 
-    const section =
-      document.getElementById(
-        "how-it-works"
-      );
+              window.location.href =
+                "/register";
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+              return;
 
-  }}
->
-  Get Started
-</button>
+            }
+
+            const section =
+              document.getElementById(
+                "how-it-works"
+              );
+
+            if (section) {
+
+              section.scrollIntoView({
+                behavior: "smooth",
+              });
+
+            }
+
+          }}
+        >
+          Get Started
+        </button>
 
       </div>
 
     </nav>
+
   );
+
 }

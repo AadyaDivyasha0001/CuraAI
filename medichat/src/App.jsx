@@ -8,6 +8,8 @@ import Appointments from "./pages/Appointments";
 import Register from "./pages/Register";
 import Welcome from "./pages/Welcome";
 import Chatbot from "./pages/Chatbot";
+import Profile from "./pages/Profile";
+import Reports from "./pages/Reports";
 <Route path="/symptom-checker" element={<SymptomChecker />} />
 
 function App() {
@@ -58,6 +60,14 @@ function App() {
 <Route
   path="/chatbot"
   element={<Chatbot />}
+/>
+<Route
+    path="/profile"
+    element={<Profile/>}
+/>
+<Route
+    path="/reports"
+    element={<Reports />}
 />
 
   </Routes>
