@@ -618,3 +618,128 @@ width:100%;
     box-shadow:0 0 0 4px rgba(24,169,199,.15);
 
 }
+@media (max-width: 768px) {
+
+  .upload-report-card{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    width:100%;
+  }
+
+  .upload-report-card select,
+  .upload-report-card input[type="file"],
+  .upload-report-card button{
+    width:100%;
+  }
+
+  .upload-report-card button{
+    height:50px;
+    font-size:16px;
+  }
+
+}
+@media (max-width:768px){
+
+.report-card{
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+}
+
+.report-actions{
+
+    width:100%;
+    display:flex;
+    gap:10px;
+
+}
+
+.report-actions a,
+.report-actions button{
+
+    flex:1;
+    text-align:center;
+
+}
+
+}
+@media (max-width:768px){
+
+.info-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.profile-edit-buttons{
+
+    justify-content:center;
+
+}
+
+}
+@media (max-width:768px){
+
+.profile-header{
+
+    flex-direction:column;
+    text-align:center;
+
+}
+
+.profile-buttons{
+
+    flex-direction:column;
+
+}
+
+.profile-buttons button,
+.profile-buttons label{
+
+    width:100%;
+
+}
+
+}
+@media (max-width:768px){
+
+.profile-stats{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+@media (max-width:768px){
+
+.profile-page{
+
+    padding:15px;
+
+}
+
+.profile-card,
+.personal-info,
+.reports-section,
+.next-appointment{
+
+    padding:20px;
+
+}
+
+}
+*{
+    box-sizing:border-box;
+}
+
+input,
+select,
+textarea,
+button{
+
+    max-width:100%;
+
+}
